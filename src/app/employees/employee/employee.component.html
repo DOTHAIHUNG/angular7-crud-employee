@@ -1,0 +1,33 @@
+<form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+  <div type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id"></div>
+  <div class="form-group">
+    <label>FIRST NAME</label>
+    <input name="firstName" #firstName="ngModel" [(ngModel)]="service.formData.firstName" class="form-control" required>
+    <div class="validation-error" *ngIf="firstName.invalid && firstName.touched">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>LAST NAME</label>
+    <input name="lastName" #lastName="ngModel" [(ngModel)]="service.formData.lastName" class="form-control" required>
+    <div class="validation-error" *ngIf="lastName.invalid && lastName.touched">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <label>POSITION</label>
+    <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" required>
+    <div class="validation-error" *ngIf="position.invalid && position.touched">This field is required.</div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>EMP CODE</label>
+      <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" required>
+      <div class="validation-error" *ngIf="empCode.invalid && empCode.touched">This field is required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <label>OFFICE</label>
+      <input name="office" #office="ngModel" [(ngModel)]="service.formData.office" class="form-control" required>
+      <div class="validation-error" *ngIf="office.invalid && office.touched">This field is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">SUBMIT</button>
+  </div>
+</form>
